@@ -1,0 +1,280 @@
+/* Basic styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Create a pseudo-element for the overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('hero-bg.jpg'); /* Replace with your background image */
+    opacity: 0.5;
+    z-index: -1;
+    position: fixed;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #c0c0c0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #ff6f61; /* Highlight color */
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Tabs Styling */
+.tabs {
+    width: 100%;
+    max-width: 240px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0; /* Removed padding to ensure correct positioning */
+}
+
+#tab1:checked ~ .marker {
+    transform: translateY(0);
+}
+
+#tab2:checked ~ .marker {
+    transform: translateY(calc(100% / 5));
+}
+
+#tab3:checked ~ .marker {
+    transform: translateY(calc(2 * 100% / 5));
+}
+
+#tab4:checked ~ .marker {
+    transform: translateY(calc(3 * 100% / 5));
+}
+
+#tab5:checked ~ .marker {
+    transform: translateY(calc(4 * 100% / 5));
+}
+
+/* Popup Styling */
+.popup {
+    width: 60%;
+    height: 80%;
+    min-height: 480px;
+    max-height: 480px;
+    border-radius: 48px;
+    box-sizing: border-box;
+    border: 16px solid #f5ebe0;
+    background-color: #f5ebe04f;
+    overflow: hidden;
+    box-shadow: 16px 16px 48px #2e364330;
+}
+
+/* Main content styling when sidebar is opened */
+#main {
+    transition: margin-left 0.5s;
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Highlight the active tab */
+input[type="radio"]:checked + label {
+    opacity: 1;
+    color: #ff6f61; /* Change to your preferred active tab color */
+    background-color: #e0e0e0; /* Change to your preferred background color for active tab */
+}
+
+/* Marker Styling */
+.marker {
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #ff6f61;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Label Styling */
+label {
+    font-size: 20px; /* Adjusted font size */
+    font-weight: 700;
+    cursor: pointer;
+    color: #333; /* Updated color for better visibility */
+    transition: color 0.3s ease-in-out;
+    padding: 15px;
+}
+
+/* Adjust Marker Position Based on Selected Tab */
+#tab1:checked ~ .marker {
+    transform: translateY(0);
+}
+
+#tab2:checked ~ .marker {
+    transform: translateY(60px);
+}
+
+#tab3:checked ~ .marker {
+    transform: translateY(120px);
+}
+
+#tab4:checked ~ .marker {
+    transform: translateY(180px);
+}
+
+#tab5:checked ~ .marker {
+    transform: translateY(240px);
+}
+
+/* Search Bar Container */
+.top-search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+/* Search Input Styling */
+.top-search-bar input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px; /* Rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Button Styling */
+.top-search-bar .search-btn {
+    padding: 10px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Search Icon Styling */
+.top-search-bar .search-btn i {
+    font-size: 20px;
+}
+
+/* Featured Courses Section */
+.featured-courses {
+    padding: 2px 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    border: 1px solid #070707;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f1efefb7;
+}
+
+.course-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.course-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.course-card .btn {
+    padding: 10px;
+    background-color: #111;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 20px;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: auto;
+    color: #333;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.about-section p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
